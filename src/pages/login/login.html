@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary"> 
     <ion-title>login</ion-title>
   </ion-navbar>
 
@@ -17,16 +17,39 @@
   <ion-card class="content">
     <ion-card-header text-center> login form</ion-card-header>
     <ion-card-content >
-      <ion-item id="#rounded">
-  <ion-input placeholder="user name" type="text"></ion-input>
+      <form #login="ngForm">
+      <ion-item >
+  <ion-input placeholder="user name" type="text"
+   name="username" #username="ngModel"
+   [(ngModel)]="user.username"
+
+   required
+   pattern="^[a-zA-Z]+[a-zA-z0-9]{6,12}$"
+   ></ion-input>
 </ion-item>
+<div *ngIf="username.invalid && username.dirty" class="error"  >
+<span> user name is in valid</span>
+
+</div>
 <ion-item>
-    <ion-input placeholder="password" type="password"></ion-input>
+    <ion-input placeholder="password" type="password" 
+    name="password" 
+    [(ngModel)]="user.password"
+
+     #password="ngModel"
+     
+     required
+   pattern="^[a-zA-Z]+[a-zA-z0-9]{6,12}$"
+     ></ion-input>
   </ion-item>
+  <div *ngIf="password.invalid && password.dirty" class="error"  >
+    <span> password is in valid</span>
+    </div>
+</form>
 </ion-card-content>
 <ion-row>
-  <button ion-button color="primary">register</button>
-  <button ion-button color="secondary">login</button>
+  <button ion-button color="primary" >register</button>
+  <button ion-button color="secondary" [disabled]="!login.valid">login</button>
 
 </ion-row>
 </ion-card>
