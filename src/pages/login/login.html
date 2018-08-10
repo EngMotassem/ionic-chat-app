@@ -48,8 +48,8 @@
 </form>
 </ion-card-content>
 <ion-row>
-  <button ion-button color="primary" >register</button>
-  <button ion-button color="secondary" [disabled]="!login.valid">login</button>
+  <button ion-button color="primary" (click)="navigateToPage('RegisterPage')" >register</button>
+  <button ion-button color="secondary" [disabled]="!login.valid"(click)="navigateToPage('InboxPage')" >login</button>
 
 </ion-row>
 </ion-card>

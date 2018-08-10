@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../../app/model/user';
+import { InboxPage } from '../inbox/inbox';
 
 /**
  * Generated class for the LoginPage page.
@@ -18,7 +19,19 @@ export class LoginPage {
 
   user ={}as  User
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  }
+
+  navigateToPage(pagename :string){
+
+    if(pagename==='InboxPage'){
+      this.navCtrl.setRoot(pagename)
+    }
+    else{
+
+    this.navCtrl.push(pagename)
+    }
+
   }
 
   ionViewDidLoad() {
