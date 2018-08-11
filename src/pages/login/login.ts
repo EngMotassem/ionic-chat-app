@@ -24,7 +24,7 @@ export class LoginPage {
 
   navigateToPage(pagename :string){
 
-    if(pagename==='InboxPage'){
+    if(pagename==='TabsPage'){
       this.navCtrl.setRoot(pagename)
     }
     else{
