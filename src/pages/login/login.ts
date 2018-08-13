@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../../app/model/user';
 import { InboxPage } from '../inbox/inbox';
+import { Loginresponse } from '../../app/model/loginresponse';
+
 
 /**
  * Generated class for the LoginPage page.
@@ -19,6 +21,13 @@ export class LoginPage {
 
 
   constructor(private navCtrl: NavController, private navParams: NavParams) {
+  }
+
+  login(event:Loginresponse){
+    if(!event.erroe){
+      this.navCtrl.setRoot('ProfilePage')
+    }
+    console.log(event)
   }
 
   
