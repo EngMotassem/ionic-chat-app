@@ -17,22 +17,11 @@ import { InboxPage } from '../inbox/inbox';
 })
 export class LoginPage {
 
-  user ={}as  User
 
   constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
-  navigateToPage(pagename :string){
-
-    if(pagename==='TabsPage'){
-      this.navCtrl.setRoot(pagename)
-    }
-    else{
-
-    this.navCtrl.push(pagename)
-    }
-
-  }
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
