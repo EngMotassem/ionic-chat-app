@@ -8,7 +8,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import{AngularFireAuth} from 'angularfire2/auth';
+
 import{FireBase_Config} from'../app/firebase.credintals';
+import { AuthProvider } from '../providers/auth/auth';
 
 
 @NgModule({
@@ -35,7 +38,9 @@ import{FireBase_Config} from'../app/firebase.credintals';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AngularFireAuth,
+    AuthProvider
   ]
 })
 export class AppModule {}

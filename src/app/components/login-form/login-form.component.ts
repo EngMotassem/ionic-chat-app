@@ -3,8 +3,10 @@ import { NavController } from 'ionic-angular';
 
 import { Accout } from '../../model/accout';
 
-import{AngularFireAuth} from 'angularfire2/auth';
 import { Loginresponse } from '../../model/loginresponse';
+import { AuthProvider } from '../../../providers/auth/auth';
+
+
 
 
 @Component({
@@ -12,7 +14,6 @@ import { Loginresponse } from '../../model/loginresponse';
   selector: 'app-login-form',
   templateUrl: './login-form.component.html' ,
 
-  providers:[AngularFireAuth]
 
 
   
@@ -23,7 +24,7 @@ export class LoginFormComponent implements OnInit {
   @Output () loginstatus:EventEmitter<Loginresponse>
 
 
-  constructor(private navCtrl:NavController ,private  _auth:AngularFireAuth) {
+  constructor(private navCtrl:NavController ,private  _auth:AuthProvider) {
 
     this.loginstatus= new EventEmitter<Loginresponse>()
    }
@@ -46,30 +47,12 @@ export class LoginFormComponent implements OnInit {
 
   
  async  signIn(){
-  try{
-  
-    const result:Loginresponse ={ 
-      
-      result : await this._auth.auth.signInWithEmailAndPassword(this.user.email,this.user.password)
-      }
-        this.loginstatus.emit(result)
-    console.log(result)
 
-    
+  const result=await this._auth.signInwithEmail(this.user)
+    this.loginstatus.emit(result)
   
-  }
-  
-  catch(e){
-
-    const error:Loginresponse={
-
-      error:e
-        }
-
-    this.loginstatus.emit(error)
-  
-    console.log(e)
-  }
+    //console.log(e)
+  //}
       
   
   
