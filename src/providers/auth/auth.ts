@@ -22,7 +22,7 @@ export class AuthProvider {
 
     try{
       return  <Loginresponse>{
-       result: this.auth.auth.createUserWithEmailAndPassword(account.email,account.password)
+       result:await  this.auth.auth.createUserWithEmailAndPassword(account.email,account.password)
       }
 
       
@@ -47,11 +47,8 @@ export class AuthProvider {
 
     try{
       return  <Loginresponse>{
-       result: this.auth.auth.signInWithEmailAndPassword(account.email,account.password)
+       result: await this.auth.auth.signInWithEmailAndPassword(account.email,account.password)
       }
-
-      
-
     }
     catch(e){
       return <Loginresponse>{

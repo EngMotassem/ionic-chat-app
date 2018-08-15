@@ -11,7 +11,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import{AngularFireAuth} from 'angularfire2/auth';
 
 import{FireBase_Config} from'../app/firebase.credintals';
-import { AuthProvider } from '../providers/auth/auth';
 
 
 @NgModule({
@@ -40,7 +39,6 @@ import { AuthProvider } from '../providers/auth/auth';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
-    AuthProvider
   ]
 })
 export class AppModule {}

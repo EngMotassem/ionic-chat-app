@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { User } from '../../app/model/user';
 import { InboxPage } from '../inbox/inbox';
 import { Loginresponse } from '../../app/model/loginresponse';
@@ -20,12 +20,25 @@ import { Loginresponse } from '../../app/model/loginresponse';
 export class LoginPage {
 
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  constructor(private navCtrl: NavController, private navParams: NavParams,private toast:ToastController) {
   }
 
   login(event:Loginresponse){
-    if(!event.erroe){
-      this.navCtrl.setRoot('ProfilePage')
+    if(event.erroe){
+
+      this.toast.create({
+        message:event.erroe.message,
+        duration:3000
+      }).present()
+      return false
+    }
+    else{
+      this.toast.create({
+        message:'succes login',
+        duration:3000
+      }).present()
+     // this.navCtrl.setRoot('TabsPage')
+
     }
     console.log(event)
   }

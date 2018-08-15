@@ -24,6 +24,7 @@
      #password="ngModel"
      
      required
+     pattern='[A-Za-z0-9]{6,20}$'
      ></ion-input>
   </ion-item>
   <div *ngIf="password.invalid && password.dirty" class="error"  >
@@ -32,7 +33,7 @@
 </form>
 </ion-card-content>
 <ion-row>
-  <button ion-button color="primary" (click)="register()" >register</button>
+  <button ion-button color="primary" (click)="register()"  [disabled]="login.invalid">register</button>
 
 </ion-row>
 </ion-card>

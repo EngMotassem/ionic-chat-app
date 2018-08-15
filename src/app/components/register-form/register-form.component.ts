@@ -18,7 +18,7 @@ export class RegisterFormComponent implements OnInit {
 
 @Output() regStatus:EventEmitter<Loginresponse>
 
-  constructor( private _auth:AuthProvider , private toast:ToastController) { 
+  constructor( private auth:AuthProvider , private toast:ToastController) { 
 
     this.regStatus=new EventEmitter<Loginresponse>()
 
@@ -32,7 +32,7 @@ export class RegisterFormComponent implements OnInit {
 
     
 
-    const result = await this._auth.createUserwithEmail(this.user);
+    const result = await this.auth.createUserwithEmail(this.user);
 
     this.regStatus.emit(result)
     /*

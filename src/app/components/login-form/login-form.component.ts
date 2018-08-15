@@ -48,11 +48,12 @@ export class LoginFormComponent implements OnInit {
   
  async  signIn(){
 
-  const result=await this._auth.signInwithEmail(this.user)
-    this.loginstatus.emit(result)
+  var  loginresponse=await this._auth.signInwithEmail(this.user)
+
+    this.loginstatus.emit(loginresponse)
+    console.log(this.loginstatus)
+
   
-    //console.log(e)
-  //}
       
   
   
