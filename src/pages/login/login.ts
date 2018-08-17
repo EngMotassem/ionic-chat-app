@@ -37,7 +37,7 @@ export class LoginPage {
         message:'succes login',
         duration:3000
       }).present()
-     // this.navCtrl.setRoot('TabsPage')
+      this.navCtrl.setRoot('EditprofilePage')
 
     }
     console.log(event)

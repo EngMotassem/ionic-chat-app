@@ -51,7 +51,7 @@ export class LoginFormComponent implements OnInit {
   var  loginresponse=await this._auth.signInwithEmail(this.user)
 
     this.loginstatus.emit(loginresponse)
-    console.log(this.loginstatus)
+    console.log(loginresponse)
 
   
       

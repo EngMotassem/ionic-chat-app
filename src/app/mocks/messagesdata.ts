@@ -1,13 +1,13 @@
-import { User } from "../model/user";
+import { Profile } from "../model/profile";
 import { Message } from "../model/message";
 
-const userList:User[]=[
+const userList:Profile[]=[
     {firstname:'MOTASSEM',lastname:'EZZ',email:'motassem2010@gmail.com',
-    username:'motassem',password:'123456'},
+    username:'motassem',password:'123456',birthdate:new Date()},
     {firstname:'abdo',lastname:'motassem',email:'abdo@gmail.com',
-    username:'abdo',password:'123456'},
+    username:'abdo',password:'123456',birthdate:new Date()},
     {firstname:'yacine',lastname:'motassem',email:'yacine@gmail.com',
-    username:'yacine',password:'123456'},
+    username:'yacine',password:'123456',birthdate:new Date()},
 ];
 const messagelist:Message[]=[
 

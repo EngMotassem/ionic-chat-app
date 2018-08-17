@@ -4,6 +4,8 @@ import{IonicModule}from'ionic-angular';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { AuthProvider } from '../../providers/auth/auth';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { DataProvider } from '../../providers/data/data';
 
 
 @NgModule({
@@ -11,7 +13,7 @@ import { AuthProvider } from '../../providers/auth/auth';
     
     LoginFormComponent,
     RegisterFormComponent,
-    
+    EditprofileComponent
   ],
   imports: [
     IonicModule,
@@ -22,12 +24,14 @@ import { AuthProvider } from '../../providers/auth/auth';
   exports:[
     LoginFormComponent,
     RegisterFormComponent,
+    EditprofileComponent
   ],
   entryComponents: [
   
 ],
   providers: [
-    AuthProvider
+    AuthProvider,
+    DataProvider
     
   ]
 })
