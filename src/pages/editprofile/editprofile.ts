@@ -18,6 +18,11 @@ export class EditprofilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  profilesave(event){
+
+    event ? this.navCtrl.setRoot("TabsPage"):console.log("message", 'not auth')
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditprofilePage');
   }

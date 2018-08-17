@@ -55,7 +55,6 @@ export class DataProvider {
     console.log("user key", user.uid)
 
     return this.profileobject.valueChanges().take(1);
-   //return this.profileobject.valueChanges();
 
 
 

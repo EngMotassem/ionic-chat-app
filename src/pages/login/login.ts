@@ -51,8 +51,7 @@ export class LoginPage {
       this.data.getprofile(this.authUser).subscribe(data =>{
         data? this.navCtrl.setRoot('TabsPage') :  this.navCtrl.setRoot('EditprofilePage')
         console.log(data)
-        console.log("event result", event.result)
-        //event.result.additional
+       
       })
     //  this.navCtrl.setRoot('EditprofilePage')
 
