@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { User } from '../../app/model/user';
-import { InboxPage } from '../inbox/inbox';
+import { User } from 'firebase/app';
 import { Loginresponse } from '../../app/model/loginresponse';
+import { DataProvider } from '../../providers/data/data';
+import{Subscription} from 'rxjs/Subscription';
+import { AuthProvider } from '../../providers/auth/auth';
 
 
 /**
@@ -18,9 +20,17 @@ import { Loginresponse } from '../../app/model/loginresponse';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  authuser$:Subscription
+  authUser:User
+ 
 
-
-  constructor(private navCtrl: NavController, private navParams: NavParams,private toast:ToastController) {
+  constructor(private navCtrl: NavController, private navParams: NavParams,
+    private toast:ToastController
+  , private data:DataProvider , private auth:AuthProvider) {
+    this.authuser$=this.auth.getAuthUser().subscribe((user:User)=>{
+      this.authUser=user
+    })
+    
   }
 
   login(event:Loginresponse){
@@ -37,7 +47,14 @@ export class LoginPage {
         message:'succes login',
         duration:3000
       }).present()
-      this.navCtrl.setRoot('EditprofilePage')
+
+      this.data.getprofile(this.authUser).subscribe(data =>{
+        data? this.navCtrl.setRoot('TabsPage') :  this.navCtrl.setRoot('EditprofilePage')
+        console.log(data)
+        console.log("event result", event.result)
+        //event.result.additional
+      })
+    //  this.navCtrl.setRoot('EditprofilePage')
 
     }
     console.log(event)
@@ -46,7 +63,8 @@ export class LoginPage {
   
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+
+
   }
 
 }

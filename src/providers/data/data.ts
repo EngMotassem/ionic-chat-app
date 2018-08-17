@@ -3,9 +3,11 @@ import{AngularFireDatabase,AngularFireObject}from 'angularfire2/database';
 
 import{Subscription} from 'rxjs/Subscription';
 
-import{User} from 'firebase';
+import{User} from 'firebase/app';
 import { AuthProvider } from '../auth/auth';
 import { Profile } from '../../app/model/profile';
+
+import 'rxjs/add/operator/take';
 
 /*
   Generated class for the DataProvider provider.
@@ -47,8 +49,15 @@ export class DataProvider {
 
   }
 
-  isNewUser(user:User){
-    
+  getprofile(user:User){
+    this.profileobject=this.afdatabase.object(`/profiles/${user.uid}`)
+
+    console.log("user key", user.uid)
+
+    return this.profileobject.valueChanges().take(1);
+   //return this.profileobject.valueChanges();
+
+
 
   }
   
