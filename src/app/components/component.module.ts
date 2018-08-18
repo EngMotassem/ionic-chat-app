@@ -6,6 +6,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { AuthProvider } from '../../providers/auth/auth';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DataProvider } from '../../providers/data/data';
+import { SearchuserFormComponent } from './searchuser-form/searchuser-form.component';
+import { SearchPipe } from '../../pipes/search/search';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { DataProvider } from '../../providers/data/data';
     
     LoginFormComponent,
     RegisterFormComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    SearchuserFormComponent,
+    SearchPipe
   ],
   imports: [
     IonicModule,
@@ -24,14 +28,16 @@ import { DataProvider } from '../../providers/data/data';
   exports:[
     LoginFormComponent,
     RegisterFormComponent,
-    EditprofileComponent
+    EditprofileComponent,
+    SearchuserFormComponent,
   ],
   entryComponents: [
   
 ],
   providers: [
     AuthProvider,
-    DataProvider
+    DataProvider,
+    
     
   ]
 })

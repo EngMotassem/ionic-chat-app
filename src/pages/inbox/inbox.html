@@ -6,8 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title>inbox</ion-title>
+  <ion-navbar >
+    <ion-title (click)="navigate()">inbox page</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="navigate()">  
+            <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>

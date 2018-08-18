@@ -17,7 +17,7 @@ import { MESSAGE_LIST } from '../../app/mocks/messagesdata';
 export class InboxPage {
   messags= MESSAGE_LIST ;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, public navParams: NavParams) {
 
     
   }
@@ -26,5 +26,9 @@ export class InboxPage {
     console.log('ionViewDidLoad InboxPage');
     console.log(this.messags)
   }
+  navigate(){
+this.navCtrl.push("SearchuserPage")
+  }
+
 
 }

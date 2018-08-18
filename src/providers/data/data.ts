@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import{AngularFireDatabase,AngularFireObject}from 'angularfire2/database';
+import{AngularFireDatabase,AngularFireObject,AngularFireList}from 'angularfire2/database';
 
 import{Subscription} from 'rxjs/Subscription';
 
@@ -22,11 +22,19 @@ export class DataProvider {
   authUser:User
   profileobject:AngularFireObject<Profile>
   
-
+   profileList:AngularFireList<Profile>
 
   constructor(private afdatabase:AngularFireDatabase, private auth:AuthProvider) {
 
     
+  }
+
+  searchprofile(){
+   return this.profileList= this.afdatabase.list('/profiles')
+   
+    
+
+
   }
 
   saveProfile(user:User , userprofile:Profile ){
@@ -52,7 +60,7 @@ export class DataProvider {
   getprofile(user:User){
     this.profileobject=this.afdatabase.object(`/profiles/${user.uid}`)
 
-    console.log("user key", user.uid)
+    console.log("user key", user.toJSON())
 
     return this.profileobject.valueChanges().take(1);
 
