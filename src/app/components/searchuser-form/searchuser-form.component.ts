@@ -17,20 +17,22 @@ export class SearchuserFormComponent implements OnInit {
   user:User
 
   constructor(private db:DataProvider) {
-
     
-   }
-
-  ngOnInit() {
-
-    this.user=this.db.getCurrentUser()
-    console.log(this.user)
     this.db.searchprofile().valueChanges().subscribe(p=>{
       this.profiles=p
       
       console.log("profiles", p)
 
         })
+    
+   }
+
+  ngOnInit() {
+   // this.profiles=[]
+
+    //this.user=this.db.getCurrentUser()
+    //console.log(this.user)
+    
   }
   searchuser(querystring : string){
 
