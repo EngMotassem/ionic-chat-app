@@ -1,5 +1,20 @@
+<!--
+  live search 
+    <ion-searchbar [(ngModel)]="firstname" name="firstname"  (ionChange)="searchfire()" ></ion-searchbar>
+<ion-list>
+    <ion-item *ngFor="let USER of profiles">
+        <ion-avatar item-left>
+          <img src='../../assets/imgs/avatar.png' alt="avatar">
+        </ion-avatar>>
+        <h2>{{USER.firstname}} </h2>
+        <p> {{USER.lastname}}</p>
+      </ion-item>
 
-    <ion-searchbar [(ngModel)]="firstname" name="firstname"></ion-searchbar>
+    </ion-list>
+    -->
+
+    
+    <ion-searchbar [(ngModel)]="firstname"></ion-searchbar>
 <ion-list>
     <ion-item *ngFor="let USER of profiles | search : firstname">
         <ion-avatar item-left>
@@ -10,3 +25,12 @@
       </ion-item>
 
     </ion-list>
+
+
+      <ion-item *ngFor="let USER of profiles">
+        <ion-avatar item-left>
+          <img src='../../assets/imgs/avatar.png' alt="avatar">
+        </ion-avatar>
+        <h2>{{USER.firstname}} </h2>
+        <p> {{USER.lastname}}</p>
+      </ion-item>

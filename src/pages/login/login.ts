@@ -50,7 +50,7 @@ export class LoginPage {
 
       this.data.getprofile(this.authUser).subscribe(data =>{
         data? this.navCtrl.setRoot('TabsPage') :  this.navCtrl.setRoot('EditprofilePage')
-        console.log(data)
+        console.log('login page',data)
        
       })
     //  this.navCtrl.setRoot('EditprofilePage')

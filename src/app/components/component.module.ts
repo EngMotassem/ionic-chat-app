@@ -8,6 +8,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 import { DataProvider } from '../../providers/data/data';
 import { SearchuserFormComponent } from './searchuser-form/searchuser-form.component';
 import { SearchPipe } from '../../pipes/search/search';
+import { ProfileFormComponent } from './profile-form/profile-form.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { SearchPipe } from '../../pipes/search/search';
     RegisterFormComponent,
     EditprofileComponent,
     SearchuserFormComponent,
+    ProfileFormComponent,
     SearchPipe
   ],
   imports: [
@@ -30,6 +32,7 @@ import { SearchPipe } from '../../pipes/search/search';
     RegisterFormComponent,
     EditprofileComponent,
     SearchuserFormComponent,
+    ProfileFormComponent
   ],
   entryComponents: [
   

@@ -29,6 +29,23 @@ export class DataProvider {
     
   }
 
+  getCurrentUser():User{
+
+    this.authuser$=this.auth.getAuthUser().subscribe((user:User)=>{
+      this.authUser=user
+      console.log(" current user ", this.authUser)
+      
+    }) 
+    return this.authUser
+
+  }
+
+
+
+  searchfirebaseprofile(quey:string){
+    return this.profileList= this.afdatabase.list('/profiles',ref=>ref.orderByChild('firstname').startAt(quey))
+    }
+
   searchprofile(){
    return this.profileList= this.afdatabase.list('/profiles')
    
@@ -36,6 +53,10 @@ export class DataProvider {
 
 
   }
+
+  
+
+  
 
   saveProfile(user:User , userprofile:Profile ){
 

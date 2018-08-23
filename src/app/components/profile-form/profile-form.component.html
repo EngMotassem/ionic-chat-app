@@ -1,0 +1,15 @@
+<ion-card>
+
+    <ion-item>
+      <ion-input placeholder="your first name" [(ngModel)]="profile.firstname"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-input placeholder="your last name" [(ngModel)]="profile.lastname"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+          <ion-input placeholder="your birth date " type="date" [(ngModel)]="profile.birthdate"></ion-input>
+        </ion-item>
+    </ion-card>
+    <button ion-button>save </button>
