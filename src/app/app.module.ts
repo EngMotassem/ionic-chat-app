@@ -11,6 +11,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import{AngularFireAuth} from 'angularfire2/auth';
 
 import{FireBase_Config} from'../app/firebase.credintals';
+import { AuthProvider } from '../providers/auth/auth';
+import { ChatProvider } from '../providers/chat/chat';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import{FireBase_Config} from'../app/firebase.credintals';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireAuth,
+    AuthProvider,
+    ChatProvider
   ]
 })
 export class AppModule {}

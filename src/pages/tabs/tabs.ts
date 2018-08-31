@@ -16,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class TabsPage {
 
   tab1Root:string = 'InboxPage'; 
- tab2Root :string = 'ChanelPage';
+ tab2Root :string = 'ChanelsPage';
   tab3Root :string ='ProfilePage';
 
   constructor() {

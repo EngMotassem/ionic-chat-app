@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MESSAGE_LIST } from '../../app/mocks/messagesdata';
+import { AuthProvider } from '../../providers/auth/auth';
 
 /**
  * Generated class for the InboxPage page.
@@ -17,7 +18,7 @@ import { MESSAGE_LIST } from '../../app/mocks/messagesdata';
 export class InboxPage {
   messags= MESSAGE_LIST ;
 
-  constructor(private navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, public navParams: NavParams ,private auth:AuthProvider) {
 
     
   }
@@ -29,6 +30,13 @@ export class InboxPage {
   navigate(){
 this.navCtrl.push("SearchuserPage")
   }
+
+  logout(){
+    this.auth.logout();
+    this.navCtrl.setRoot('LoginPage')
+
+  }
+
 
 
 }

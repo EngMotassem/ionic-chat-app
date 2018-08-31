@@ -39,6 +39,11 @@ export class AuthProvider {
   
 }
 
+async logout(){
+
+  await this.auth.auth.signOut()
+}
+
 
   async signInwithEmail(account :Accout){
 
