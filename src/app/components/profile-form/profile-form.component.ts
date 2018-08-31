@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { Profile } from '../../model/profile';
 import { DataProvider } from '../../../providers/data/data';
 import{Subscription} from 'rxjs/Subscription';
@@ -22,7 +22,7 @@ export class ProfileFormComponent implements OnInit {
   constructor(private data:DataProvider , private auth:AuthProvider) {
 
     
-
+/*
     this.authuser$=this.auth.getAuthUser().subscribe((user:User)=>{
       this.user=user
 
@@ -30,11 +30,18 @@ export class ProfileFormComponent implements OnInit {
 
     })
 
+    console.log('message', this.data.getMappedprofile())
+*/
 
+this.authuser$=this.data.getMappedprofile().subscribe(data=>console.log('profile data ',this.profile=data))
 
    }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(){
+this.authuser$.unsubscribe()
   }
 
 }

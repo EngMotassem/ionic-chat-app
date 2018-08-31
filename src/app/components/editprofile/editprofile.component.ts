@@ -1,5 +1,4 @@
 import{Subscription} from 'rxjs/Subscription';
-
 import{User} from 'firebase';
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { Profile } from '../../model/profile';
@@ -16,10 +15,10 @@ import { AuthProvider } from '../../../providers/auth/auth';
 })
 export class EditprofileComponent implements OnInit {
 
-profile = {} as Profile
+  profile = {} as Profile
   authuser$:Subscription
   authUser:User
-  profileobject:AngularFireObject<Profile>
+  //profileobject:AngularFireObject<Profile>
   @Output() isProfilesaved:EventEmitter<boolean>
 
   constructor(private data:DataProvider , private auth:AuthProvider) { 
@@ -41,5 +40,8 @@ async  saveprofile(){
     console.log(result)
   }
   }
+
+
+
 
 }

@@ -9,6 +9,11 @@ import { Profile } from '../../app/model/profile';
 
 import 'rxjs/add/operator/take';
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+
+
+
 /*
   Generated class for the DataProvider provider.
 
@@ -41,16 +46,12 @@ export class DataProvider {
   }
 
 
-
   searchfirebaseprofile(quey:string){
     return this.profileList= this.afdatabase.list('/profiles',ref=>ref.orderByChild('firstname').startAt(quey))
     }
 
   searchprofile(){
    return this.profileList= this.afdatabase.list('/profiles')
-   
-    
-
 
   }
 
@@ -79,15 +80,27 @@ export class DataProvider {
   }
 
   getprofile(user:User){
+
+    //this.auth.getAuthUser
     this.profileobject=this.afdatabase.object(`/profiles/${user.uid}`)
 
     console.log("user key", user.toJSON())
 
     return this.profileobject.valueChanges().take(1);
 
-
-
   }
+
+
+
+  getMappedprofile(){
+
+  
+   return this.auth.getAuthUser()
+ .mergeMap(p=>this.getprofile(p))
+   
+  }
+
+  
   
 
 
