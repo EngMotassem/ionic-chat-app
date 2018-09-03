@@ -20,10 +20,19 @@ export class ChatProvider {
 
     this.database.list('/chanel-name/').push({name:channelname})
   }
+  // get reference of channel 
 
   getChannelRef(){
     return this.database.list('chanel-name').valueChanges()
     
+  }
+
+  // get chats of messages
+  getChannelChatRef(key:string){
+
+    return this.database.list(`chanel-name/${key}`).valueChanges()
+
+
   }
 
 }

@@ -71,6 +71,11 @@ channellist:Observable<Channels[]>
 
       this.channellist=this.chat.getChannelRef()
     }
+
+    navigateToChannel(channel:Channels){
+  this.navCtrl.push('ChannelChatPage',{channel})
+  console.log('channel name', channel.name)
+    }
   }
 
 
