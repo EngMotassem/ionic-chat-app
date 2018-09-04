@@ -76,6 +76,7 @@ channellist:Observable<Channels[]>
   this.navCtrl.push('ChannelChatPage',{channel})
   console.log('channel name', channel.name)
     }
+    
   }
 
 
