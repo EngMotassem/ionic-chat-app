@@ -23,7 +23,7 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item  *ngFor="let ch of channellist | async" (click)="navigateToChannel(ch)">
+    <ion-item  *ngFor="let ch of chlists " (click)="navigateToChannel(ch)">
 
       {{ch?.name}}
 

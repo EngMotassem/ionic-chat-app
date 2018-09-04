@@ -1,12 +1,12 @@
 <ion-grid>
     <ion-row>
     <ion-col col-9>
-<ion-textarea placeholder="enter message" [(ngModel)]="messagecontent">
+<ion-textarea placeholder="enter message ..... " [(ngModel)]="messagecontent">
 
 </ion-textarea>
 </ion-col>
 <ion-col col-3>
-<button>
+<button clear ion-button (click)="send()">
     send 
 </button>
 </ion-col>

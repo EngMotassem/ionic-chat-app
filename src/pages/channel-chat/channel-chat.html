@@ -15,7 +15,25 @@
 
 <ion-content padding>
 
+  <ion-list>
+    <ion-item *ngFor="let message of chatmessage | async">
+<p>
+      {{message?.content}}
+
+      </p>
+
+
+    </ion-item>
+  </ion-list>
+
+
 </ion-content>
 
+<ion-footer>
+  <ion-toolbar>
+      <app-sendMessage (sendMessage)="sendmessage($event)"></app-sendMessage>
 
-<app-sendMessage (sendMessage)="sendmessage($event)"></app-sendMessage>
+  </ion-toolbar>
+</ion-footer>
+
+

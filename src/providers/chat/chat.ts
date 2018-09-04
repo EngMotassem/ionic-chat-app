@@ -24,14 +24,14 @@ export class ChatProvider {
   // get reference of channel 
 
   getChannelRef(){
-    return this.database.list('chanel-name').valueChanges()
+    return this.database.list('chanel-name').snapshotChanges()
     
   }
 
   // get chats of messages
   getChannelChatRef(key:string){
 
-    return this.database.list(`chanel/${key}`).valueChanges()
+    return this.database.list(`/chanel/${key}`).valueChanges()
 
 
   }
@@ -41,7 +41,7 @@ export class ChatProvider {
   async sendChannelMessage(key:string , chanelMessage :ChannelMessage)
   {
 
-  await this.database.list(`chanel/${key}`).push(chanelMessage)
+  await this.database.list(`/chanel/${key}`).push(chanelMessage)
   }
 
   

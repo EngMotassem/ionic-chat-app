@@ -18,6 +18,7 @@ export class SendMessageComponent implements OnInit {
   send(){
 
     this.sendMessage.emit(this.messagecontent)
+    this.messagecontent=""
   }
 
 

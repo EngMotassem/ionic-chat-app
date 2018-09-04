@@ -20,7 +20,10 @@ import { AngularFireList } from 'angularfire2/database';
 })
 export class ChanelsPage {
 
-channellist:Observable<Channels[]>
+channellist:AngularFireList<Channels[]>
+
+chlists:Channels[]
+chlist:Channels
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private alertctrl:AlertController
     ,private chat:ChatProvider) {
@@ -68,13 +71,24 @@ channellist:Observable<Channels[]>
     }
 
     getChannels(){
+      const x=this.chat.getChannelRef()
+         x.subscribe(item => {
+      this.chlists =[];
+      item.forEach(element => {
+        const y = element.payload.toJSON();
+        y['key'] = element.key;
+       // y['']
+        this.chlists.push(y as Channels);
+        console.log('message', y)
+      });
+    });
 
-      this.channellist=this.chat.getChannelRef()
+      
     }
 
     navigateToChannel(channel:Channels){
   this.navCtrl.push('ChannelChatPage',{channel})
-  console.log('channel name', channel.name)
+  console.log('channel name', channel.key)
     }
     
   }
