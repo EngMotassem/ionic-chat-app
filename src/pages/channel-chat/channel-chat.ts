@@ -6,6 +6,9 @@ import { ChannelMessage } from '../../app/model/ChannelMessage';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireList } from 'angularfire2/database';
 
+import { timer, combineLatest } from 'rxjs';
+
+
 /**
  * Generated class for the ChannelChatPage page.
  *
@@ -22,8 +25,9 @@ export class ChannelChatPage {
 
   channel:Channels
 
-  chatmessage:AngularFireList<ChannelMessage []>
+  chatmessage:Observable<ChannelMessage []>
 
+//chatmessage:ChannelMessage[]
   constructor(public navCtrl: NavController, public navParams: NavParams,private chat:ChatProvider) {
   }
 
@@ -43,8 +47,6 @@ export class ChannelChatPage {
     console.log('message', this.channel.key)
 
     this.chat.sendChannelMessage(this.channel.key, ChannelMessage)
-
-    
 
   }
 

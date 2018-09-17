@@ -3,7 +3,7 @@ import{AngularFireDatabase,AngularFireObject,AngularFireList}from 'angularfire2/
 
 import{Subscription} from 'rxjs/Subscription';
 
-import{User} from 'firebase/app';
+import{User, database} from 'firebase/app';
 import { AuthProvider } from '../auth/auth';
 import { Profile } from '../../app/model/profile';
 
@@ -97,9 +97,36 @@ export class DataProvider {
   
    return this.auth.getAuthUser()
  .mergeMap(p=>this.getprofile(p))
+
+ 
    
   }
 
+
+  setUserOnLine(profile:Profile,user:User){
+    user= this.getCurrentUser()
+
+    const ref =this.afdatabase.database.ref(`onlineusers/${user.uid}`)
+
+    try{
+
+      console.log('profile', profile)
+
+      ref.update({... profile})
+      ref.onDisconnect().remove()
+
+
+    }
+    catch(e){
+console.log('message', e)
+    }
+
+    
+    
+  }
+getOnlineUserRef(){
+  return this.afdatabase.list('onlineusers')
+}
   
   
 

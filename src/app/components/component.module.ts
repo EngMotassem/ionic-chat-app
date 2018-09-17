@@ -10,6 +10,7 @@ import { SearchuserFormComponent } from './searchuser-form/searchuser-form.compo
 import { SearchPipe } from '../../pipes/search/search';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { SendMessageComponent } from './sendMessage/sendMessage.component';
+import { OnlineusersComponent } from './onlineusers/onlineusers.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SendMessageComponent } from './sendMessage/sendMessage.component';
     EditprofileComponent,
     SearchuserFormComponent,
     ProfileFormComponent,
+    OnlineusersComponent,
     
 SendMessageComponent,
     SearchPipe
@@ -36,7 +38,8 @@ SendMessageComponent,
     EditprofileComponent,
     SearchuserFormComponent,
     ProfileFormComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    OnlineusersComponent
   ],
   entryComponents: [
   

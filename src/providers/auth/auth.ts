@@ -18,6 +18,7 @@ export class AuthProvider {
     console.log('Hello AuthProvider Provider');
   }
   getAuthUser(){
+    console.log('message', this.auth.authState)
     return this.auth.authState
   }
   async createUserwithEmail(account :Accout){
@@ -41,7 +42,7 @@ export class AuthProvider {
 
 async logout(){
 
-  await this.auth.auth.signOut()
+ return await this.auth.auth.signOut()
 }
 
 
